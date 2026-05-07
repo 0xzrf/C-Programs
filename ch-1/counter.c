@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define IN 1
+#define OUT 0
+
 void print_blanks_nl_tabs();
 void rm_mult_blanks();
 void replace_chars();
@@ -54,3 +57,5 @@ void replace_chars() {
     }
   }
 }
+
+void print_one_word_per_line() {}
