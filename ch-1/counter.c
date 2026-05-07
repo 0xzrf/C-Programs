@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-#define IN 1
-#define OUT 0
-
 void print_blanks_nl_tabs();
 void rm_mult_blanks();
 void replace_chars();
+void print_one_word_per_line();
 
-int main() { rm_mult_blanks(); }
+int main() { print_one_word_per_line(); }
 
 void print_blanks_nl_tabs() {
   long blanks, tabs, nl;
@@ -58,4 +56,16 @@ void replace_chars() {
   }
 }
 
-void print_one_word_per_line() {}
+void print_one_word_per_line() {
+  int c;
+  while ((c = getchar()) != EOF) {
+    if (c == ' ') {
+      putchar('\n');
+    } else if (c == '\n' || c == '\t') {
+    } else {
+      putchar(c);
+    }
+  }
+
+  printf("\n");
+}
