@@ -2,6 +2,7 @@
 
 void print_blanks_nl_tabs();
 void rm_mult_blanks();
+void replace_chars();
 
 int main() { rm_mult_blanks(); }
 
@@ -37,4 +38,19 @@ void rm_mult_blanks() {
     }
   }
   printf("\n");
+}
+
+void replace_chars() {
+  int c;
+
+  while ((c = getchar()) != EOF) {
+    if (c == '\t') {
+      putchar('\b');
+    } else if (c == '\\') {
+      putchar('\\');
+      putchar('\\');
+    } else {
+      putchar(c);
+    }
+  }
 }
