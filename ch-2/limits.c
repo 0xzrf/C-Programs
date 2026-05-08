@@ -39,3 +39,22 @@ void print_stuff() {
   printf("hello "
          "world\n");
 }
+
+void loop_equivalent(char s[]) {
+  int c;
+  int i = 0, limit = 10;
+  while (i < limit) {
+    c = getchar();
+
+    if (c == '\n') {
+      break;
+    }
+
+    if (c == EOF) {
+      break;
+    }
+
+    s[i] = c;
+    i++;
+  }
+}
