@@ -1,12 +1,19 @@
+#include <ctype.h>
 #include <float.h>
 #include <limits.h>
+#include <math.h>
 #include <stdio.h>
+#include <string.h>
+
+#define HEX_PREFIX 2
 
 void print_limits();
 void print_escape_seq();
 void print_stuff();
+void experiment();
+long htoi(char[]);
 
-int main() { print_stuff(); }
+int main() { experiment(); }
 
 void print_limits() {
   printf("Signed char: {Max: %d, Min: %d}\nUnsigned Char: {Max: %d, Min: %d}",
@@ -56,5 +63,44 @@ void loop_equivalent(char s[]) {
 
     s[i] = c;
     i++;
+  }
+}
+
+/* lower: convert c to lower case; ASCII only */
+int lower(int c) {
+  if (c >= 'A' && c <= 'Z')
+    return c + 'a' - 'A';
+  else
+    return c;
+}
+
+long htoi(char s[]) {
+  if ((s[0] == '0') && (s[1] == 'x' || s[1] == 'X')) {
+    long res = 0;
+    for (int i = 0; i < strlen(s) - HEX_PREFIX; i++) {
+      char current_char = s[i + HEX_PREFIX];
+      if (current_char >= '0' && current_char <= '9') {
+        res += pow(16, i) * (current_char - '0');
+      } else if ((current_char >= 'A' && current_char <= 'F') ||
+                 (current_char >= 'a' && current_char <= 'f')) {
+        current_char = tolower(current_char);
+        res += pow(16, i) * (current_char - ('a' - 10));
+      } else {
+        return 0;
+      }
+    }
+    return res;
+  } else {
+    return 0;
+  }
+}
+
+void experiment() {
+  int result = htoi("0xF0");
+
+  if (result) {
+    printf("Got result: %d\n", result);
+  } else {
+    printf("Invalid input for the argument");
   }
 }
