@@ -74,6 +74,8 @@ int lower(int c) {
     return c;
 }
 
+int cond_lower(int c) { return c >= 'A' && c <= 'Z' ? c + 'a' - 'A' : c; }
+
 long htoi(char s[]) {
   if ((s[0] == '0') && (s[1] == 'x' || s[1] == 'X')) {
     long res = 0;
