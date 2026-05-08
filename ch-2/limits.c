@@ -1,3 +1,4 @@
+#include <float.h>
 #include <limits.h>
 #include <stdio.h>
 
@@ -9,11 +10,19 @@ int main() {
          SHRT_MAX, SHRT_MIN, USHRT_MAX, 0);
   putchar('\n');
   // Int ranges for signed an unsigned values
-  printf("Signed Int: {Max: %d, Min: %d}\nUnsigned Int: {Max: %d, Min: %d}",
+  printf("Signed Int: {Max: %d, Min: %d}\nUnsigned Int: {Max: %u, Min: %u}",
          INT_MAX, INT_MIN, UINT_MAX, 0);
 
   putchar('\n');
   printf(
-      "Signed long: {Max: %ld, Min: %ld}\nUnsigned long: {Max: %ld, Min: %d}",
-      LONG_MAX, LONG_MIN, ULONG_MAX, 0);
+      "Signed long: {Max: %ld, Min: %ld}\nUnsigned long: {Max: %lu, Min: %lu}",
+      LONG_MAX, LONG_MIN, ULONG_MAX, 0UL);
+  putchar('\n');
+
+  printf("Float: {Max: %e, Min: %e}\nDouble: {Max: %e, Min: %e}", FLT_MAX,
+         -FLT_MAX, DBL_MAX, -DBL_MAX);
+  putchar('\n');
+
+  printf("Long double: {Max: %Le, Min: %Le}", LDBL_MAX, -LDBL_MAX);
+  putchar('\n');
 }
