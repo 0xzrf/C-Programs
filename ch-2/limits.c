@@ -2,7 +2,13 @@
 #include <limits.h>
 #include <stdio.h>
 
-int main() {
+void print_limits();
+void print_escape_seq();
+void print_stuff();
+
+int main() { print_stuff(); }
+
+void print_limits() {
   printf("Signed char: {Max: %d, Min: %d}\nUnsigned Char: {Max: %d, Min: %d}",
          CHAR_MAX, CHAR_MIN, UCHAR_MAX, 0);
   putchar('\n');
@@ -25,4 +31,11 @@ int main() {
 
   printf("Long double: {Max: %Le, Min: %Le}", LDBL_MAX, -LDBL_MAX);
   putchar('\n');
+}
+
+void print_escape_seq() { putchar('\r'); }
+
+void print_stuff() {
+  printf("hello "
+         "world\n");
 }
