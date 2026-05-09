@@ -21,9 +21,9 @@ int binsearch(int x, int v[], int n) {
 
 void escape(char s[], char t[]) {
   int i, j;
-  i = j = 0;
+  i = 0;
 
-  while (t[j] != '\0') {
+  for (j = 0; t[j] != '\0'; j++) {
     switch (t[j]) {
     case '\n':
       s[i++] = '\\';
@@ -37,7 +37,6 @@ void escape(char s[], char t[]) {
       s[i++] = t[j];
       break;
     }
-    j++;
   }
   s[i] = '\0';
 }
