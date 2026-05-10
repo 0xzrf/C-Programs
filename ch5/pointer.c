@@ -2,10 +2,19 @@
 
 void fun(int x) { printf("%d\n", x); }
 
+void self_strcat(char *s, char *t) {
+  while (*s != '\0')
+    s++;
+
+  while (*s++ = *t++)
+    ;
+}
+
 int main() {
-  //   int arr[] = {1, 3, 4};
+  char s[32] = "Hello ";
+  char *t = "world";
 
-  //   int *p = arr;
+  self_strcat(s, t);
 
-  //   printf("p: %d\np+1 %d\n", p, ++p);
+  printf("s: %s\n", s);
 }
