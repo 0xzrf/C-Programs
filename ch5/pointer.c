@@ -2,6 +2,8 @@
 
 void fun(int x) { printf("%d\n", x); }
 
+char self_strend(char *s, char *t) {}
+
 void self_strcat(char *s, char *t) {
   while (*s != '\0')
     s++;
