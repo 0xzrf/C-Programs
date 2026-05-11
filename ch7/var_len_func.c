@@ -33,4 +33,4 @@ void min_printf(char *fmt, ...) {
   va_end(ap);
 }
 
-int main() {}
+int main() { printf("%x\n", 0xfffffff); }
